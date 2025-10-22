@@ -12,11 +12,14 @@ export default async function Page() {
 
   const content = builderRes.results?.[0] || null;
 
-  const jsonConfig = await fetch(JSON_CONFIG_URL, { cache: "no-store" }).then((r) =>
-    r.json()
-  );
+  let config = null;
 
-  const config = jsonConfig.record || jsonConfig;
+  if (JSON_CONFIG_URL) {
+    const jsonConfig = await fetch(JSON_CONFIG_URL, { cache: "no-store" }).then((r) =>
+      r.json()
+    );
+    config = jsonConfig.record || jsonConfig;
+  }
 
   return (
     <main>
