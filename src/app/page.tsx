@@ -20,6 +20,7 @@ export default async function Page() {
     );
     config = jsonConfig.record || jsonConfig;
   }
+  console.log("config", config)
 
   return (
     <main>
