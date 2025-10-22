@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 type Section = { type: string; [key: string]: any };
 
@@ -12,6 +12,7 @@ export default function DynamicSection({
   return (
     <section className="p-6 border rounded-xl space-y-4">
       {title && <h2 className="text-xl font-semibold">{title}</h2>}
+
       {config?.heroBanner && (
         <div>
           <img
@@ -24,6 +25,7 @@ export default function DynamicSection({
           </h3>
         </div>
       )}
+
       {Array.isArray(config?.sections) &&
         config.sections.map((s: Section, i: number) => (
           <div key={i} className="p-3 bg-gray-50 rounded-lg">
@@ -36,4 +38,3 @@ export default function DynamicSection({
     </section>
   );
 }
-
