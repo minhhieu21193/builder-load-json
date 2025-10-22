@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "name": "Product Showcase",
+  "description": "Product listing and showcase page",
+  "sections": [
+    {
+      "id": "hero-section",
+      "type": "HeroSection",
+      "props": {
+        "title": "Our Products",
+        "subtitle": "Discover our complete range of solutions",
+        "backgroundColor": "#6366f1"
+      }
+    },
+    {
+      "id": "products-container",
+      "type": "Container",
+      "props": {
+        "maxWidth": "1200px",
+        "padding": "60px 20px"
+      },
+      "children": [
+        {
+          "id": "filters-section",
+          "type": "Container",
+          "props": {
+            "maxWidth": "100%",
+            "padding": "20px 0"
+          },
+          "className": "mb-8 border-b",
+          "children": [
+            {
+              "id": "filter-badges",
+              "type": "Grid",
+              "props": {
+                "columns": 4,
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "badge-all",
+                  "type": "Badge",
+                  "props": {
+                    "text": "All Products",
+                    "variant": "default"
+                  }
+                },
+                {
+                  "id": "badge-popular",
+                  "type": "Badge",
+                  "props": {
+                    "text": "Popular",
+                    "variant": "success"
+                  }
+                },
+                {
+                  "id": "badge-new",
+                  "type": "Badge",
+                  "props": {
+                    "text": "New",
+                    "variant": "info"
+                  }
+                },
+                {
+                  "id": "badge-sale",
+                  "type": "Badge",
+                  "props": {
+                    "text": "On Sale",
+                    "variant": "warning"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "products-grid",
+          "type": "Grid",
+          "props": {
+            "columns": 3,
+            "gap": "30px"
+          },
+          "children": [
+            {
+              "id": "product-1",
+              "type": "Card",
+              "props": {
+                "title": "Premium Pro",
+                "description": "Advanced features for professionals. Includes priority support and custom integrations.",
+                "image": "https://via.placeholder.com/400x300/6366f1/ffffff?text=Premium+Pro"
+              }
+            },
+            {
+              "id": "product-2",
+              "type": "Card",
+              "props": {
+                "title": "Business Suite",
+                "description": "Complete business solution with analytics, team collaboration, and API access.",
+                "image": "https://via.placeholder.com/400x300/10b981/ffffff?text=Business+Suite"
+              }
+            },
+            {
+              "id": "product-3",
+              "type": "Card",
+              "props": {
+                "title": "Enterprise Plus",
+                "description": "Enterprise-grade solution with dedicated support, custom deployment, and SLA.",
+                "image": "https://via.placeholder.com/400x300/f59e0b/ffffff?text=Enterprise+Plus"
+              }
+            },
+            {
+              "id": "product-4",
+              "type": "Card",
+              "props": {
+                "title": "Starter Pack",
+                "description": "Perfect for individuals and small teams. Get started with core features.",
+                "image": "https://via.placeholder.com/400x300/ec4899/ffffff?text=Starter+Pack"
+              }
+            },
+            {
+              "id": "product-5",
+              "type": "Card",
+              "props": {
+                "title": "Developer Tools",
+                "description": "API-first solution designed for developers. Full documentation and SDKs included.",
+                "image": "https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Developer+Tools"
+              }
+            },
+            {
+              "id": "product-6",
+              "type": "Card",
+              "props": {
+                "title": "Custom Solution",
+                "description": "Build your perfect solution. Contact sales for custom packages and pricing.",
+                "image": "https://via.placeholder.com/400x300/06b6d4/ffffff?text=Custom+Solution"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pricing-section",
+      "type": "Container",
+      "props": {
+        "maxWidth": "1200px",
+        "padding": "60px 20px"
+      },
+      "className": "border-t",
+      "children": [
+        {
+          "id": "pricing-title",
+          "type": "Text",
+          "props": {
+            "variant": "h2"
+          },
+          "className": "text-center mb-8",
+          "children": "Simple Transparent Pricing"
+        },
+        {
+          "id": "pricing-description",
+          "type": "Text",
+          "props": {
+            "variant": "body"
+          },
+          "className": "text-center text-gray-600 mb-8",
+          "children": "Choose the perfect plan for your needs. Always flexible to scale."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "theme": "light",
+    "category": "ecommerce",
+    "currency": "USD"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "version": "1.0.0",
+  "name": "Admin Dashboard",
+  "description": "Dashboard layout with metrics cards and overview",
+  "sections": [
+    {
+      "id": "header",
+      "type": "Container",
+      "props": {
+        "maxWidth": "100%",
+        "padding": "20px 40px"
+      },
+      "className": "border-b border-gray-200",
+      "children": [
+        {
+          "id": "header-title",
+          "type": "Text",
+          "props": {
+            "variant": "h1"
+          },
+          "children": "Dashboard"
+        }
+      ]
+    },
+    {
+      "id": "stats-section",
+      "type": "Container",
+      "props": {
+        "maxWidth": "1400px",
+        "padding": "40px 20px"
+      },
+      "children": [
+        {
+          "id": "stats-title",
+          "type": "Text",
+          "props": {
+            "variant": "h2"
+          },
+          "className": "mb-6",
+          "children": "Overview"
+        },
+        {
+          "id": "stats-grid",
+          "type": "Grid",
+          "props": {
+            "columns": 4,
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "stat-users",
+              "type": "Card",
+              "props": {
+                "title": "Total Users",
+                "description": "12,543 active users"
+              }
+            },
+            {
+              "id": "stat-revenue",
+              "type": "Card",
+              "props": {
+                "title": "Revenue",
+                "description": "$45,230 this month"
+              }
+            },
+            {
+              "id": "stat-conversions",
+              "type": "Card",
+              "props": {
+                "title": "Conversion Rate",
+                "description": "3.24% average"
+              }
+            },
+            {
+              "id": "stat-growth",
+              "type": "Card",
+              "props": {
+                "title": "Growth",
+                "description": "+12.5% month over month"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recent-activity",
+      "type": "Container",
+      "props": {
+        "maxWidth": "1400px",
+        "padding": "40px 20px"
+      },
+      "children": [
+        {
+          "id": "activity-title",
+          "type": "Text",
+          "props": {
+            "variant": "h2"
+          },
+          "className": "mb-6",
+          "children": "Recent Activity"
+        },
+        {
+          "id": "activity-grid",
+          "type": "Grid",
+          "props": {
+            "columns": 2,
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "activity-new-signups",
+              "type": "Card",
+              "props": {
+                "title": "New Sign-ups",
+                "description": "247 users registered in the last 7 days"
+              }
+            },
+            {
+              "id": "activity-support-tickets",
+              "type": "Card",
+              "props": {
+                "title": "Support Tickets",
+                "description": "18 open tickets, 156 resolved this month"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "theme": "light",
+    "role": "admin",
+    "refreshInterval": 300000
+  }
+}

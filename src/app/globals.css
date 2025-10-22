@@ -24,3 +24,71 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+  height: auto;
+}
+
+.search-input {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  max-width: 768px;
+  color: rgb(237, 237, 237);
+  background-color: rgb(10, 10, 10);
+  margin: 0 auto;
+  padding: 40px 0;
+  font: 400 16px/24px Arial, Helvetica, sans-serif;
+}
+
+.hidden-placeholder {
+  display: none;
+  font-weight: 400;
+}
+
+.main-section {
+  font-weight: 400;
+}
+
+.error-container {
+  padding: 20px;
+  margin: 20px;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: #c00;
+  font-weight: 600;
+}
+
+.no-content-message {
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  text-align: center;
+  padding: 100px;
+}
+
+.route-announcer {
+  display: block;
+  font-weight: 400;
+  position: absolute;
+}
+
+.ui-renderer {
+  width: 100%;
+}
+
+.ui-section {
+  width: 100%;
+}

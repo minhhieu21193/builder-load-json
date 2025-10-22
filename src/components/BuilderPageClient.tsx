@@ -1,72 +1,63 @@
 "use client";
 
 import { BuilderComponent } from "@builder.io/react";
+import UIRenderer from "./UIRenderer";
+import { UIConfig } from "@/lib/uiConfig";
+import { useState } from "react";
 
 export default function BuilderPageClient({ content, config }: any) {
-  console.log("content", content)
-  console.log("config", config)
+  const [renderError, setRenderError] = useState<string | null>(null);
+
+  const handleRenderError = (error: Error) => {
+    setRenderError(error.message);
+    console.error("UI Render Error:", error);
+  };
+
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          position: "relative",
-          marginTop: "20px",
-          height: "auto",
-        }}
-      >
+      <div className="input-container">
         <input
           type="text"
           placeholder="bạn mong chờ điều gì ở một con chó"
-          style={{
-            padding: "12px 16px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            fontFamily: "Arial, sans-serif",
-          }}
+          className="search-input"
         />
       </div>
-      <div
-        style={{
-          maxWidth: "768px",
-          color: "rgb(237, 237, 237)",
-          backgroundColor: "rgb(10, 10, 10)",
-          margin: "0 auto",
-          padding: "40px 0",
-          font: "400 16px/24px Arial, Helvetica, sans-serif",
-        }}
-      >
-        <div style={{ display: "none", fontWeight: "400" }} hidden />
-        <main style={{ fontWeight: "400" }}>
-          {!content ? (
-            <div
-              style={{
-                color: "rgb(255, 255, 255)",
-                fontWeight: "400",
-                textAlign: "center",
-                padding: "100px",
-              }}
-            >
-              ⚠️ No Builder.io content found for this URL
+      <div className="main-content">
+        <div className="hidden-placeholder" hidden />
+        <main className="main-section">
+          {renderError && (
+            <div className="error-container">
+              <div className="error-message">
+                ⚠️ Lỗi render: {renderError}
+              </div>
             </div>
-          ) : (
+          )}
+
+          {config && isValidUIConfig(config) ? (
+            <UIRenderer config={config} onError={handleRenderError} />
+          ) : content ? (
             <BuilderComponent
               model="page"
               content={content}
               data={{ jsonConfig: config }}
             />
+          ) : (
+            <div className="no-content-message">
+              ⚠️ No Builder.io content found for this URL
+            </div>
           )}
         </main>
-        <next-route-announcer
-          style={{
-            display: "block",
-            fontWeight: "400",
-            position: "absolute",
-          }}
-        />
+        <next-route-announcer className="route-announcer" />
       </div>
     </>
+  );
+}
+
+function isValidUIConfig(config: any): config is UIConfig {
+  return (
+    config &&
+    typeof config === "object" &&
+    Array.isArray(config.sections) &&
+    config.sections.length > 0
   );
 }
