@@ -1,0 +1,116 @@
+{
+  "version": "1.0.0",
+  "name": "Landing Page",
+  "description": "Professional landing page with hero section, features, and CTA",
+  "sections": [
+    {
+      "id": "hero",
+      "type": "HeroSection",
+      "props": {
+        "title": "Welcome to Your App",
+        "subtitle": "Build amazing user interfaces dynamically with UI as a Service",
+        "backgroundColor": "#3b82f6"
+      }
+    },
+    {
+      "id": "features-container",
+      "type": "Container",
+      "props": {
+        "maxWidth": "1200px",
+        "padding": "60px 20px"
+      },
+      "children": [
+        {
+          "id": "features-title",
+          "type": "Text",
+          "props": {
+            "variant": "h2"
+          },
+          "className": "text-center mb-8",
+          "children": "Key Features"
+        },
+        {
+          "id": "features-grid",
+          "type": "Grid",
+          "props": {
+            "columns": 3,
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "feature-dynamic",
+              "type": "Card",
+              "props": {
+                "title": "Dynamic Rendering",
+                "description": "Load UI configurations from jsonbin.io and render them instantly without redeployment",
+                "image": "https://via.placeholder.com/400x250/3b82f6/ffffff?text=Dynamic"
+              }
+            },
+            {
+              "id": "feature-registry",
+              "type": "Card",
+              "props": {
+                "title": "Component Registry",
+                "description": "Register and reuse custom React components across your entire application",
+                "image": "https://via.placeholder.com/400x250/10b981/ffffff?text=Registry"
+              }
+            },
+            {
+              "id": "feature-builder",
+              "type": "Card",
+              "props": {
+                "title": "Builder.io Integration",
+                "description": "Seamlessly integrate with Builder.io for visual editing and content management",
+                "image": "https://via.placeholder.com/400x250/f59e0b/ffffff?text=Builder"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cta-container",
+      "type": "Container",
+      "props": {
+        "maxWidth": "800px",
+        "padding": "60px 20px"
+      },
+      "children": [
+        {
+          "id": "cta-section",
+          "type": "HeroSection",
+          "props": {
+            "title": "Ready to Get Started?",
+            "subtitle": "Join thousands of developers using UI as a Service",
+            "backgroundColor": "#10b981"
+          }
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "type": "Container",
+      "props": {
+        "maxWidth": "100%",
+        "padding": "20px"
+      },
+      "className": "text-center border-t border-gray-200",
+      "children": [
+        {
+          "id": "footer-text",
+          "type": "Text",
+          "props": {
+            "variant": "small"
+          },
+          "className": "text-gray-500",
+          "children": "© 2024 UI as a Service. All rights reserved."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "theme": "light",
+    "author": "Developer",
+    "createdAt": "2024-01-01"
+  }
+}
