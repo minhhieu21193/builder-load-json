@@ -14,7 +14,17 @@ export default function BuilderPageClient({ content, config }: any) {
           height: "auto",
         }}
       >
-        Enter some text...
+        <input
+          type="text"
+          placeholder="bạn mong chờ điều gì ở một con chó"
+          style={{
+            padding: "12px 16px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            fontFamily: "Arial, sans-serif",
+          }}
+        />
       </div>
       <div
         style={{
