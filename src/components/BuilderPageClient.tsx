@@ -1,24 +1,19 @@
 "use client";
 
-import { BuilderComponent, builder } from "@builder.io/react";
-import { BUILDER_API_KEY } from "@/lib/builder";
+import { Content } from "@builder.io/sdk-react";
 
-if (!builder.apiKey && BUILDER_API_KEY) {
-  builder.init(BUILDER_API_KEY);
+interface Props {
+  model: string;
+  entry?: string;
+  apiKey: string;
+  data?: any;
 }
 
 export default function BuilderPageClient({
-  content,
-  config,
-}: {
-  content: any;
-  config: any;
-}) {
-  return (
-    <BuilderComponent
-      model="page"
-      content={content}
-      data={{ jsonConfig: config }}
-    />
-  );
+  model,
+  entry,
+  apiKey,
+  data,
+}: Props) {
+  return <Content model={model} apiKey={apiKey} entry={entry} data={data} />;
 }
