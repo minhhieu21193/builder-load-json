@@ -13,7 +13,7 @@ export default async function Page() {
   const content = builderRes.results?.[0] || null;
 
   let config = null;
-
+  console.log(JSON_CONFIG_URL)
   if (JSON_CONFIG_URL) {
     const jsonConfig = await fetch(JSON_CONFIG_URL, { cache: "no-store" }).then((r) =>
       r.json()
