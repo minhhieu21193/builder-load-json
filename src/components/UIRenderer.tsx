@@ -2,7 +2,7 @@
 
 import { componentRegistry } from "@/lib/componentRegistry";
 import { UIElement, UIConfig } from "@/lib/uiConfig";
-import React from "react";
+import React, { JSX } from "react";
 
 interface UIRendererProps {
   config: UIConfig;
@@ -10,10 +10,20 @@ interface UIRendererProps {
 }
 
 export default function UIRenderer({ config, onError }: UIRendererProps) {
-  const renderElement = (element: UIElement, index: number): React.ReactNode => {
+  const renderElement = (
+    element: UIElement,
+    index: number
+  ): React.ReactNode => {
     if (!element) return null;
 
-    const { id, type, props = {}, children, className = "", style = {} } = element;
+    const {
+      id,
+      type,
+      props = {},
+      children,
+      className = "",
+      style = {},
+    } = element;
     const key = id || `element-${index}`;
 
     try {
@@ -31,13 +41,37 @@ export default function UIRenderer({ config, onError }: UIRendererProps) {
       }
 
       // Fallback to native HTML elements
+      const isStyleProp = (key: string) =>
+        [
+          "backgroundColor",
+          "color",
+          "fontSize",
+          "margin",
+          "padding",
+          "border",
+          "borderRadius",
+          "width",
+          "height",
+        ].includes(key);
+
+      const extractedStyle: React.CSSProperties = {
+        ...style,
+        ...Object.fromEntries(
+          Object.entries(props).filter(([key]) => isStyleProp(key))
+        ),
+      };
+
+      const filteredProps = Object.fromEntries(
+        Object.entries(props).filter(([key]) => !isStyleProp(key))
+      );
+
       return React.createElement(
         type as keyof JSX.IntrinsicElements,
         {
           key,
           className,
-          style,
-          ...props,
+          style: extractedStyle,
+          ...filteredProps,
         },
         renderChildren(children)
       );
