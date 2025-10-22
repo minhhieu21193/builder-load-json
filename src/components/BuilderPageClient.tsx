@@ -3,6 +3,7 @@
 import { BuilderComponent } from "@builder.io/react";
 
 export default function BuilderPageClient({ content, config }: any) {
+  console.log(content, config)
   return (
     <>
       <div
