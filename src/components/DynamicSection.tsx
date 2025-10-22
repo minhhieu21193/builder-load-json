@@ -1,14 +1,10 @@
-'use client';
+"use client";
+
+import React from "react";
 
 type Section = { type: string; [key: string]: any };
 
-export default function DynamicSection({
-  title,
-  config,
-}: {
-  title?: string;
-  config?: any;
-}) {
+export default function DynamicSection({ title, config }: any) {
   return (
     <section className="p-6 border rounded-xl space-y-4">
       {title && <h2 className="text-xl font-semibold">{title}</h2>}
@@ -36,4 +32,3 @@ export default function DynamicSection({
     </section>
   );
 }
-

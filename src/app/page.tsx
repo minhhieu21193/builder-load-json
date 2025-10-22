@@ -1,4 +1,3 @@
-"use client";
 import { BuilderComponent } from "@builder.io/react";
 import { builder } from "@/lib/builder";
 
