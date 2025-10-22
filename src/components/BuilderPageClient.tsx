@@ -1,11 +1,6 @@
 "use client";
 
-import { BuilderComponent, builder } from "@builder.io/react";
-import { BUILDER_API_KEY } from "@/lib/builder";
-
-if (!builder.apiKey && BUILDER_API_KEY) {
-  builder.init(BUILDER_API_KEY);
-}
+import { BuilderComponent } from "@builder.io/react";
 
 export default function BuilderPageClient({ content, config }: any) {
   return (

@@ -1,7 +1,5 @@
 import BuilderPageClient from "@/components/BuilderPageClient";
-import { BUILDER_API_KEY } from "@/lib/builder";
-
-const JSON_URL = "https://api.jsonbin.io/v3/b/6718f62be41b4d34e4702b9a";
+import { BUILDER_API_KEY, JSON_CONFIG_URL } from "@/lib/builder";
 
 export default async function Page() {
   // Fetch Builder content
@@ -10,19 +8,24 @@ export default async function Page() {
     { cache: "no-store" }
   ).then(r => r.json());
 
-
-  console.log("🔍 Builder response:", builderRes); // 👈 thêm dòng này để kiểm tra log
+  console.log("🔍 Builder response:", builderRes);
 
   const content = builderRes.results?.[0] || null;
 
-  const jsonConfig = await fetch(JSON_URL, { cache: "no-store" }).then((r) =>
+  const jsonConfig = await fetch(JSON_CONFIG_URL, { cache: "no-store" }).then((r) =>
     r.json()
   );
+
   const config = jsonConfig.record || jsonConfig;
 
   return (
     <main>
-      <BuilderPageClient content={content} config={config} />
+      <BuilderPageClient
+        model="page"
+        apiKey={BUILDER_API_KEY!}
+        content={content}
+        config={config}
+      />
     </main>
   );
 }

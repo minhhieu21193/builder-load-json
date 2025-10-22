@@ -1,8 +1,10 @@
 "use client";
-import { builder } from "@builder.io/react";
+
+import { register } from "@builder.io/sdk-react";
 import DynamicSection from "./DynamicSection";
 
-builder.registerComponent(DynamicSection, {
+// Đăng ký component với Fusion SDK (Gen 2)
+register(DynamicSection, {
   name: "DynamicSection",
   inputs: [
     { name: "title", type: "string" },
