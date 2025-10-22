@@ -1,24 +1,27 @@
-import { BuilderComponent } from "@builder.io/react";
-import { builder } from "@/lib/builder";
+import BuilderPageClient from "@/components/BuilderPageClient";
+import { BUILDER_API_KEY } from "@/lib/builder";
 
-// URL JSON (bạn có thể thay bằng link JSONForm.io hoặc JSONBin.io)
-const JSON_URL = "https://api.jsonbin.io/v3/b/68f8f791ae596e708f243e4a"; // ví dụ
+const JSON_URL = "https://api.jsonbin.io/v3/b/6718f62be41b4d34e4702b9a";
 
 export default async function Page() {
-  const [content, jsonConfig] = await Promise.all([
-    builder.get("page", { userAttributes: { urlPath: "/" } }).toPromise(),
-    fetch(JSON_URL, { cache: "no-store" }).then((r) => r.json()), // ⚡ luôn lấy mới nhất
-  ]);
+  // 1️⃣ Fetch nội dung Builder.io (dạng page)
+  const builderRes = await fetch(
+    `https://cdn.builder.io/api/v3/content/page?apiKey=${BUILDER_API_KEY}&userAttributes.urlPath=/`,
+    { cache: "no-store" }
+  ).then((r) => r.json());
 
+  const content = builderRes.results?.[0] || null;
+
+  // 2️⃣ Fetch JSON config (ví dụ từ JSONBin)
+  const jsonConfig = await fetch(JSON_URL, { cache: "no-store" }).then((r) =>
+    r.json()
+  );
   const config = jsonConfig.record || jsonConfig;
 
+  // 3️⃣ Render phía client
   return (
     <main>
-      <BuilderComponent
-        model="page"
-        content={content}
-        data={{ jsonConfig: config }}
-      />
+      <BuilderPageClient content={content} config={config} />
     </main>
   );
 }

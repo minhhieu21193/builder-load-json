@@ -1,5 +1,4 @@
 "use client";
-
 import { builder } from "@builder.io/react";
 import DynamicSection from "./DynamicSection";
 

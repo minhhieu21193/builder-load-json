@@ -1,13 +1,18 @@
 "use client";
 
-import React from "react";
-
 type Section = { type: string; [key: string]: any };
 
-export default function DynamicSection({ title, config }: any) {
+export default function DynamicSection({
+  title,
+  config,
+}: {
+  title?: string;
+  config?: any;
+}) {
   return (
     <section className="p-6 border rounded-xl space-y-4">
       {title && <h2 className="text-xl font-semibold">{title}</h2>}
+
       {config?.heroBanner && (
         <div>
           <img
@@ -20,6 +25,7 @@ export default function DynamicSection({ title, config }: any) {
           </h3>
         </div>
       )}
+
       {Array.isArray(config?.sections) &&
         config.sections.map((s: Section, i: number) => (
           <div key={i} className="p-3 bg-gray-50 rounded-lg">
