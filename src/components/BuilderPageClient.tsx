@@ -12,6 +12,17 @@ export default function BuilderPageClient({ content, config }: any) {
     <>
       <div
         style={{
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          marginTop: "20px",
+          height: "auto",
+        }}
+      >
+        Enter some text...
+      </div>
+      <div
+        style={{
           maxWidth: "768px",
           color: "rgb(237, 237, 237)",
           backgroundColor: "rgb(10, 10, 10)",
@@ -48,17 +59,6 @@ export default function BuilderPageClient({ content, config }: any) {
             position: "absolute",
           }}
         />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          position: "relative",
-          marginTop: "20px",
-          height: "auto",
-        }}
-      >
-        Enter some text...
       </div>
     </>
   );
