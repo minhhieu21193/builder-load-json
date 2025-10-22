@@ -8,7 +8,8 @@ export default async function Page() {
   const builderRes = await fetch(
     `https://cdn.builder.io/api/v3/content/page?apiKey=${BUILDER_API_KEY}&userAttributes.urlPath=/`,
     { cache: "no-store" }
-  ).then((r) => r.json());
+  ).then(r => r.json());
+
 
   console.log("🔍 Builder response:", builderRes); // 👈 thêm dòng này để kiểm tra log
 
